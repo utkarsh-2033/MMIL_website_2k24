@@ -47,24 +47,28 @@
 .deencode-card {
     grid-column: 1; 
     grid-row: 1; 
-    margin-left: 200px;
+    margin-left: 150px;
+    transform: translateX(90px);
 }
 
 .hackocode-card {
     grid-column: 1; 
     grid-row: 2; 
-    margin-left: 200px;
+    transform: translateX(90px);
+    margin-left: 150px;
 }
 
 .logocon-card {
     grid-column: 2; 
     grid-row: 1; 
-    margin-right: 200px;
+    transform: translateX(-90px);
+    margin-right: 150px;
 }
 
 .valorant-card {
     grid-column: 2; 
     grid-row: 2; 
-    margin-right: 200px;
     margin-top: -140px; 
+    transform: translateX(-90px);
+    margin-right: 150px;
 }
