@@ -2,6 +2,6 @@ import React from 'react'
 
 export const Header = () => {
   return (
-    <div>Header</div>
+    <div style={{color: 'white'}}>Header</div>
   )
 }
