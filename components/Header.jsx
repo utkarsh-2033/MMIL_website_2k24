@@ -13,12 +13,16 @@ const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: absolute;
   padding: 6px 10vh;
   border: 1px solid rgba(239, 236, 253, 1);
   width: 60%;
-  margin: 7vh auto;
+  top: 10vh;
+  left: 50%;
+  transform: translate(-50%,-50%);
   // overflow: hidden;
-`;
+  z-index: 9999;
+  `;
 
 const Nav = styled.nav`
   display: flex;
