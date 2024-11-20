@@ -8,10 +8,10 @@ import proj4vector2 from "../src/assets/proj4vector2.svg";
 
 const Container = styled.div`
   text-align: center;
-  padding: 1rem;
+  padding: 2rem;
   overflow-x: hidden;
   color: white;
-  height: 100vh;
+  height: 90vh;
 `;
 
 const Title = styled.h1`
@@ -203,83 +203,89 @@ const ExploreButton = styled.button`
 
 export const FeaturedProjects = () => {
   return (
-    <Container>
-      <Title>Featured Projects</Title>
-      <ProjectWrapper>
-        <ProjectCard>
-          <img src={proj2vector2} alt="" />
-          <img src={proj3vector1} alt="" />
-          <TextContent>
-            <ProjectTitle>Project 1</ProjectTitle>
-            <ProjectDescription>
-              Unveil the creativity behind our web development projects, where
-              we build dynamic and user-friendly websites and applications
-            </ProjectDescription>
-            <ExploreButton>Explore</ExploreButton>
-          </TextContent>
-        </ProjectCard>
-        <ProjectCard>
-          <img src={proj4vector1} alt="" />
-          <img src={proj2vector2} alt="" />
+    <>
+      <hr style={{ width: "75%", margin: "0 auto" }} />
 
-          <TextContent>
-            <ProjectTitle>Project 2</ProjectTitle>
-            <ProjectDescription>
-              <p>
-                Explore cutting-edge projects and innovative solutions crafted
-                by our talented team of designers in the Technical Society
-              </p>
-            </ProjectDescription>
-            <ExploreButton>Explore</ExploreButton>
-          </TextContent>
-        </ProjectCard>
-        <ProjectCard>
-          <img src={proj3vector2} alt="" />
-          <img src={proj4vector2} alt="" />
+      <Container>
+        <Title>Featured Projects</Title>
+        <ProjectWrapper>
+          <ProjectCard>
+            <img src={proj2vector2} alt="" />
+            <img src={proj3vector1} alt="" />
+            <TextContent>
+              <ProjectTitle>Project 1</ProjectTitle>
+              <ProjectDescription>
+                Unveil the creativity behind our web development projects, where
+                we build dynamic and user-friendly websites and applications
+              </ProjectDescription>
+              <ExploreButton>Explore</ExploreButton>
+            </TextContent>
+          </ProjectCard>
+          <ProjectCard>
+            <img src={proj4vector1} alt="" />
+            <img src={proj2vector2} alt="" />
 
-          <TextContent>
-            <ProjectTitle>Project 3</ProjectTitle>
-            <ProjectDescription>
-              <p>
-                Discover our Android development endeavors, showcasing
-                innovative apps and solutions for mobile technology
-              </p>
-            </ProjectDescription>
-            <ExploreButton>Explore</ExploreButton>
-          </TextContent>
-        </ProjectCard>
-        <ProjectCard>
-          <img src={proj3vector1} alt="" />
-          <img src={proj4vector1} alt="" />
+            <TextContent>
+              <ProjectTitle>Project 2</ProjectTitle>
+              <ProjectDescription>
+                <p>
+                  Explore cutting-edge projects and innovative solutions crafted
+                  by our talented team of designers in the Technical Society
+                </p>
+              </ProjectDescription>
+              <ExploreButton>Explore</ExploreButton>
+            </TextContent>
+          </ProjectCard>
+          <ProjectCard>
+            <img src={proj3vector2} alt="" />
+            <img src={proj4vector2} alt="" />
 
-          <TextContent>
-            <ProjectTitle>Project 4</ProjectTitle>
-            <ProjectDescription>
-              <p>
-                Explore our AI/ML innovations, delivering cutting-edge models
-                and intelligent solutions that redefine technology through
-                automation and data-driven insights
-              </p>
-            </ProjectDescription>
-            <ExploreButton>Explore</ExploreButton>
-          </TextContent>
-        </ProjectCard>
-        <ProjectCard>
-          <img src={proj4vector2} alt="" />
-          <img src={proj2vector2} alt="" />
+            <TextContent>
+              <ProjectTitle>Project 3</ProjectTitle>
+              <ProjectDescription>
+                <p>
+                  Discover our Android development endeavors, showcasing
+                  innovative apps and solutions for mobile technology
+                </p>
+              </ProjectDescription>
+              <ExploreButton>Explore</ExploreButton>
+            </TextContent>
+          </ProjectCard>
+          <ProjectCard>
+            <img src={proj3vector1} alt="" />
+            <img src={proj4vector1} alt="" />
 
-          <TextContent>
-            <ProjectTitle>Project 5</ProjectTitle>
-            <ProjectDescription>
-              <p>
-                Dive into our programming initiatives, where coding enthusiasts
-                develop powerful software and drive technological advancements
-              </p>
-            </ProjectDescription>
-            <ExploreButton>Explore</ExploreButton>
-          </TextContent>
-        </ProjectCard>
-      </ProjectWrapper>
-    </Container>
+            <TextContent>
+              <ProjectTitle>Project 4</ProjectTitle>
+              <ProjectDescription>
+                <p>
+                  Explore our AI/ML innovations, delivering cutting-edge models
+                  and intelligent solutions that redefine technology through
+                  automation and data-driven insights
+                </p>
+              </ProjectDescription>
+              <ExploreButton>Explore</ExploreButton>
+            </TextContent>
+          </ProjectCard>
+          <ProjectCard>
+            <img src={proj4vector2} alt="" />
+            <img src={proj2vector2} alt="" />
+
+            <TextContent>
+              <ProjectTitle>Project 5</ProjectTitle>
+              <ProjectDescription>
+                <p>
+                  Dive into our programming initiatives, where coding
+                  enthusiasts develop powerful software and drive technological
+                  advancements
+                </p>
+              </ProjectDescription>
+              <ExploreButton>Explore</ExploreButton>
+            </TextContent>
+          </ProjectCard>
+        </ProjectWrapper>
+      </Container>
+      <hr style={{ width: "75%", margin: "0 auto" }} />
+    </>
   );
 };
