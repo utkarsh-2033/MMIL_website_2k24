@@ -70,8 +70,9 @@ const SubText = styled.p`
 `;
 
 const Title = styled.h2`
-  font-size: 7.75rem;
-  font-weight: bold;
+  font-family: "Lato", serif;
+  font-size: 8.75rem;
+  font-weight: 900;
   margin: 10px 0;
 `;
 
