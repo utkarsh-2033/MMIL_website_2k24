@@ -19,10 +19,9 @@ const HeaderContainer = styled.header`
   width: 60%;
   top: 10vh;
   left: 50%;
-  transform: translate(-50%,-50%);
-  // overflow: hidden;
+  transform: translate(-50%, -50%);
   z-index: 9999;
-  `;
+`;
 
 const Nav = styled.nav`
   display: flex;
@@ -44,7 +43,7 @@ export const Header = () => {
   return (
     <>
       <Logo>
-        <img src={mmilLogo} alt="" />
+        <img src={mmilLogo} alt="Logo" />
       </Logo>
       <HeaderContainer>
         <Nav>
