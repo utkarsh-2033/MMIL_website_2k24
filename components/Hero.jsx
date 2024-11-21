@@ -48,7 +48,6 @@ const SphereContainer = styled.div`
 `;
 
 const Text = styled.div`
-  opacity: 0;
   text-align: center;
   color: white;
   position: absolute;
@@ -84,7 +83,6 @@ const Motto = styled.div`
 `;
 
 const MottoText = styled.span`
-  opacity: 0;
   transform: translateY(-10px);
   font-size: 2.25rem;
   font-weight: bold;
@@ -104,29 +102,35 @@ export const Hero = () => {
     tl.fromTo(
       "#SphereContainer img",
       {
-        y: "-150vh", 
-        opacity: 0, 
+        y: "-150vh",
+        opacity: 0,
       },
       {
-        y: "-29vh", 
-        opacity: 1, 
-        duration: 1, 
-        stagger: 0.3, 
-        // ease: "power4.out", 
-      }
+        y: "-29vh",
+        opacity: 1,
+        duration: 1,
+        stagger: 0.3,
+        // ease: "power2.inOut",
+      },
+      "Sphere"
     );
-    tl.to("#text", {
-      opacity: 1,
-      duration: 1,
-      ease: "power4.inOut", 
-    });
-    tl.to("#text #motto span", {
-      opacity: 1,
-      y: 10,
+    tl.from(
+      "#text",
+      {
+        opacity: 0,
+        y: -150,
+        delay: 0.9,
+        duration: 1,
+        // ease: "power2.inOut",
+      },
+      "Sphere"
+    );
+    tl.from("#text #motto span", {
+      opacity: 0,
+      y: -40,
       stagger: 0.3,
-      ease: "bounce.out", 
-    })
-
+      ease: "bounce.out",
+    });
   }, []);
 
   return (
