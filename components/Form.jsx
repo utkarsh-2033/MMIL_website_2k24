@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { FaInstagram, FaLinkedin, FaRegTimesCircle } from "react-icons/fa";
 import hand from '../src/assets/hand.svg';
@@ -204,43 +204,45 @@ const BottomBorder = styled.div`
   margin-top: 2rem;
 `;
 
-const CustomInput = ({ placeholder, type }) => (
+const CustomInput = ({ placeholder, type, value, onChange, clearInput }) => (
   <CustomInputContainer>
-    <input type={type} placeholder={placeholder} />
+    <input type={type} placeholder={placeholder} value={value} onChange={onChange} />
     <div className="input-line" />
-    <FaRegTimesCircle className="clear-icon" />
+    <FaRegTimesCircle className="clear-icon" onClick={clearInput} />
   </CustomInputContainer>
 );
 
-const HandImage = styled.img`
-  width: 31.25rem;
-  height: 43.125rem;
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  transform: rotate(-12.43deg);
-`;
-
 const GetInTouch = () => {
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [message, setMessage] = useState('');
+
+  const clearEmail = () => setEmail('');
+  const clearPhone = () => setPhone('');
+  const clearMessage = () => setMessage('');
+
   return (
     <div>
       <GetInTouchContainer>
         <Title>GET IN TOUCH</Title>
         <SocialLinksContainer>
-          <SocialLinkBox href="https://www.instagram.com">
+          <SocialLinkBox href="https://www.instagram.com/jssmmil?igsh=NnNzbmhhNGdsdHNl">
             <FaInstagram />
             <p>Instagram</p>
           </SocialLinkBox>
-          <SocialLinkBox href="https://www.linkedin.com">
+          <SocialLinkBox href="https://www.linkedin.com/company/mmil/">
             <FaLinkedin />
             <p>Linkedin</p>
           </SocialLinkBox>
         </SocialLinksContainer>
-        <InputFieldsContainer>
-          <CustomInput type="email" placeholder="Your email" />
-          <CustomInput type="tel" placeholder="+91" />
-        </InputFieldsContainer>
-        <TextareaField placeholder="Comment here..." />
+        <form>
+          <InputFieldsContainer>
+            <CustomInput type="email" placeholder="Your email" value={email} onChange={(e) => setEmail(e.target.value)} clearInput={clearEmail} />
+            <CustomInput type="tel" placeholder="+91" value={phone} onChange={(e) => setPhone(e.target.value)} clearInput={clearPhone} />
+          </InputFieldsContainer>
+          <TextareaField placeholder="Comment here..." value={message} onChange={(e) => setMessage(e.target.value)} />
+          <button type="button" onClick={clearMessage}>Clear</button>
+        </form>
       </GetInTouchContainer>
       <BottomBorder />
       {/* <HandImage src={hand} alt='handd' /> */}
