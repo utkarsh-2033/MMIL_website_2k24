@@ -41,10 +41,10 @@ const ProjectCard = styled.div`
   flex: 0 0 18%;
   padding: 1.5rem;
   backdrop-filter: blur(10px);
-  transition: transform 0.3s ease;
+  transition: scale 0.3s ease-in-out;
 
   &:hover {
-    transform: translateY(-10px);
+    scale: 1.02;
   }
 
   &:nth-child(1) {
