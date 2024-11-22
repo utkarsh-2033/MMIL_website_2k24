@@ -13,21 +13,36 @@ const FooterContainer = styled.footer`
   font-family: "Ubuntu", serif;
   color: #eeeeef;
   padding-bottom: 10vh;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 `;
 
 const Section = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem; 
+  gap: 0.5rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    align-items: center;
+  }
 `;
 
 const SectionTitle = styled.h3`
   font-family: "Ubuntu", serif;
   font-size: 2rem;
   font-weight: 700;
-  line-height: 2.5rem; 
+  line-height: 2.5rem;
   text-align: left;
   white-space: nowrap;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const List = styled.ul`
@@ -39,7 +54,7 @@ const List = styled.ul`
 const ListItem = styled.li`
   font-size: 1.75rem;
   font-weight: 400;
-  line-height: 2.5rem; 
+  line-height: 2.5rem;
   letter-spacing: -0.1rem;
   text-align: left;
   text-decoration-line: underline;
@@ -50,6 +65,10 @@ const ListItem = styled.li`
     text-decoration: none;
     color: inherit;
   }
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const SocialLinks = styled.div`
@@ -57,15 +76,19 @@ const SocialLinks = styled.div`
   gap: 9px;
 
   a {
-    font-size: 3rem; 
+    font-size: 3rem;
     color: #efecfd;
+  }
+
+  @media (max-width: 768px) {
+    justify-content: center;
   }
 `;
 
 const Details = styled.div`
   font-size: 1.75rem;
   font-weight: 400;
-  line-height: 2.5rem; 
+  line-height: 2.5rem;
   letter-spacing: -0.1rem;
   text-align: left;
   text-decoration-line: underline;
@@ -79,6 +102,10 @@ const Details = styled.div`
       color: inherit;
     }
   }
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const Footer = () => {
@@ -90,7 +117,7 @@ const Footer = () => {
           alt="Microsoft Mobile Innovation Lab"
           style={{ width: "18vw", height: "auto", maxHeight: "108px" }}
         />
-        <SectionTitle style={{ color: "#f6e1fd" }}>
+        <SectionTitle style={{ color: "#f6e1fd", textAlign: 'left' }}>
           MMIL is a
           <br />
           ...
@@ -122,7 +149,7 @@ const Footer = () => {
       </Section>
 
       <Section style={{ width: "35vw", alignItems: 'flex-start' }}>
-        <SectionTitle>Let's Talk</SectionTitle>
+        <SectionTitle style={{ textAlign: 'left' }}>Let's Talk</SectionTitle>
         <SocialLinks>
           <a href="https://www.linkedin.com/company/mmil/">
             <FaLinkedin />
