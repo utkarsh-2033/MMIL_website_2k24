@@ -231,6 +231,15 @@ const BottomBorder = styled.div`
   margin-top: 2rem;
 `;
 
+const HandImage = styled.img`
+  position: absolute;
+  width: 500px;
+  height: 690px;
+  top: 225rem;
+  left: -3rem;
+  transform: rotate(-12.43deg);
+`;
+
 const CustomInput = ({ placeholder, type, value, onChange, clearInput }) => (
   <CustomInputContainer>
     <input type={type} placeholder={placeholder} value={value} onChange={onChange} />
@@ -319,7 +328,7 @@ const GetInTouch = () => {
         </form>
       </GetInTouchContainer>
       <BottomBorder />
-      {/* <HandImage src={hand} alt='handd' />*/}
+      <HandImage src={hand} alt='handd' />
     </div>
   );
 };
