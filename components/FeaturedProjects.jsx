@@ -41,10 +41,12 @@ const ProjectCard = styled.div`
   flex: 0 0 18%;
   padding: 1.5rem;
   backdrop-filter: blur(10px);
-  transition: scale 0.3s ease-in-out;
+  transition: scale 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
   &:hover {
     scale: 1.02;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+
   }
 
   &:nth-child(1) {
