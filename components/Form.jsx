@@ -26,6 +26,7 @@ const GetInTouchContainer = styled.section`
 `;
 
 const Title = styled.h2`
+text-shadow: 0 0 5px #8a2be2, 0 0 10px #8a2be2, 0 0 15px #8a2be2;
   font-family: "Ubuntu", serif;
   font-size: 2.5rem;
   font-weight: 700;
