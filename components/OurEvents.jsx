@@ -2,9 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 const OurEventsContainer = styled.div`
+  position: relative;
   text-align: center;
+  overflow: hidden;
   color: white;
   padding: 40px;
+  width: 100%;
 `;
 
 const Title = styled.h1`
@@ -13,15 +16,15 @@ const Title = styled.h1`
   text-align: center;
   text-shadow: 0 0 5px #8a2be2, 0 0 10px #8a2be2, 0 0 15px #8a2be2;
   margin-bottom: 40px;
+  margin-top: 200px;
 `;
 
 const EventGrid = styled.div`
   display: grid;
-  justify-content: center;
-  overflow: hidden;
   grid-template-columns: repeat(2, 1fr);
-  gap: 5vh;
-  width: 100%;
+  column-gap: 0px;
+  row-gap: 0px;
+  justify-content: center;
 `;
 
 const EventCard = styled.div`
@@ -74,11 +77,17 @@ const EventImage = styled.img`
 `;
 
 const CirclesLeft = styled.div`
- 
+  position: absolute;
+  width: 60%;
+  left: -27%;
+  top: 0;
 `;
 
 const CirclesRight = styled.div`
-
+  position: absolute;
+  width: 60%;
+  right: -27%;
+  top: 50%;
 `;
 
 export const OurEvents = () => {
