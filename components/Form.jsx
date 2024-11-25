@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { FaInstagram, FaLinkedin, FaRegTimesCircle } from "react-icons/fa";
-import hand from '../src/assets/hand.svg';
+import hand from "../src/assets/hand.svg";
 
 // Styled Components
 const GetInTouchContainer = styled.section`
+  position: relative;
   width: 60vw;
   max-width: 75rem;
   height: 100vh;
@@ -26,12 +27,11 @@ const GetInTouchContainer = styled.section`
 `;
 
 const Title = styled.h2`
+  font-size: 8vh;
+  text-shadow: 0 0 5px #8a2be2, 0 0 10px #8a2be2, 0 0 15px #8a2be2;
   font-family: "Ubuntu", serif;
-  font-size: 2.5rem;
-  font-weight: 700;
   margin-bottom: 5rem;
   line-height: 2.875rem;
-  // letter-spacing: 0.46875rem;
   @media (max-width: 48rem) {
     font-size: 2rem;
     margin-bottom: 3rem;
@@ -206,22 +206,44 @@ const TextareaField = styled.textarea`
 `;
 
 const SendButton = styled.button`
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  font-family: "Ubuntu", serif;
-  color: #ffffff;
-  background-color: #333333;
-  border: none;
-  border-radius: 0.25rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  margin-top: 6vh;
+  padding: 10px 24px;
+  font-size: 18px;
+  color: rgb(255, 20, 147);
+  border: 2px solid rgb(255, 20, 147);
+  border-radius: 34px;
+  background-color: transparent;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
 
-  &:hover {
-    background-color: #555555;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: inherit;
+    scale: 0;
+    z-index: -1;
+    background-color: rgb(255, 20, 148);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
-  &:focus {
-    outline: none;
+  &:hover::before {
+    scale: 3;
+  }
+
+  &:hover {
+    color: #ffffff;
+    scale: 1.1;
+    box-shadow: 0 0px 20px rgba(255, 20, 147, 0.4);
+  }
+
+  &:active {
+    scale: 1;
   }
 `;
 
@@ -233,37 +255,41 @@ const BottomBorder = styled.div`
 
 const HandImage = styled.img`
   position: absolute;
-  width: 500px;
-  height: 690px;
-  top: 225rem;
-  left: -3rem;
-  transform: rotate(-12.43deg);
+  top: -20vh;
+  left: -20vw;
+  transform: rotate(7.43deg);
 `;
 
 const CustomInput = ({ placeholder, type, value, onChange, clearInput }) => (
   <CustomInputContainer>
-    <input type={type} placeholder={placeholder} value={value} onChange={onChange} />
+    <input
+      type={type}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+    />
     <div className="input-line" />
     <FaRegTimesCircle className="clear-icon" onClick={clearInput} />
   </CustomInputContainer>
 );
 
 const GetInTouch = () => {
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
   const [errors, setErrors] = useState({});
 
-  const clearEmail = () => setEmail('');
-  const clearPhone = () => setPhone('');
-  const clearMessage = () => setMessage('');
+  const clearEmail = () => setEmail("");
+  const clearPhone = () => setPhone("");
+  const clearMessage = () => setMessage("");
 
   const validateForm = () => {
     const newErrors = {};
 
-    if (!email.includes('@')) newErrors.email = 'Email must include @';
-    if (phone.length !== 10 || isNaN(phone)) newErrors.phone = 'Phone number must be 10 digits';
-    if (!message) newErrors.message = 'Message is required';
+    if (!email.includes("@")) newErrors.email = "Email must include @";
+    if (phone.length !== 10 || isNaN(phone))
+      newErrors.phone = "Phone number must be 10 digits";
+    if (!message) newErrors.message = "Message is required";
 
     setErrors(newErrors);
 
@@ -274,14 +300,13 @@ const GetInTouch = () => {
     e.preventDefault();
 
     if (validateForm()) {
-      console.log('Form submitted', { email, phone, message });
-      
-      
+      console.log("Form submitted", { email, phone, message });
+
       clearEmail();
       clearPhone();
       clearMessage();
     } else {
-      console.log('Form has errors');
+      console.log("Form has errors");
     }
   };
 
@@ -299,36 +324,44 @@ const GetInTouch = () => {
             <p>Linkedin</p>
           </SocialLinkBox>
         </SocialLinksContainer>
-        <form onSubmit={handleSubmit}>
+        <form
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+          onSubmit={handleSubmit}
+        >
           <InputFieldsContainer>
-            <CustomInput 
-              type="email" 
-              placeholder="Your email" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
-              clearInput={clearEmail} 
+            <CustomInput
+              type="email"
+              placeholder="Your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              clearInput={clearEmail}
             />
-            <CustomInput 
-              type="tel" 
-              placeholder="+91" 
-              value={phone} 
-              onChange={(e) => setPhone(e.target.value)} 
-              clearInput={clearPhone} 
+            <CustomInput
+              type="tel"
+              placeholder="+91"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              clearInput={clearPhone}
             />
           </InputFieldsContainer>
-          <TextareaField 
-            placeholder="Comment here..." 
-            value={message} 
-            onChange={(e) => setMessage(e.target.value)} 
+          <TextareaField
+            placeholder="Comment here..."
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           />
-          {errors.message && <p style={{ color: 'red' }}>{errors.message}</p>}
-          {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
-          {errors.phone && <p style={{ color: 'red' }}>{errors.phone}</p>}
-          <SendButton type="submit">clear</SendButton>
+          {errors.message && <p style={{ color: "red" }}>{errors.message}</p>}
+          {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
+          {errors.phone && <p style={{ color: "red" }}>{errors.phone}</p>}
+          <SendButton type="submit">Submit</SendButton>
         </form>
+        <HandImage src={hand} alt="handd" />
       </GetInTouchContainer>
       <BottomBorder />
-      <HandImage src={hand} alt='handd' />
     </div>
   );
 };
