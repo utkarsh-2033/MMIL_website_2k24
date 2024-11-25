@@ -255,11 +255,9 @@ const BottomBorder = styled.div`
 
 const HandImage = styled.img`
   position: absolute;
-  width: 550px;
-  height: 730px;
-  top: -32vh;
-  left: -23vw;
-  transform: rotate(3.43deg);
+  top: -20vh;
+  left: -20vw;
+  transform: rotate(7.43deg);
 `;
 
 const CustomInput = ({ placeholder, type, value, onChange, clearInput }) => (

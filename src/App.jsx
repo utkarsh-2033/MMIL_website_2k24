@@ -4,7 +4,7 @@ import { OurEvents } from "../components/OurEvents";
 import styled from "styled-components";
 import { FeaturedProjects } from "../components/FeaturedProjects";
 import Footer from "../components/Footer";
-import Form from "../components/FORM";
+import Form from "../components/Form";
 import Clubs from "../components/Clubs";
 
 const Main = styled.div`

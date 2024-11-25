@@ -80,6 +80,7 @@ const SocialLinks = styled.div`
 
   a {
     font-size: 2.2rem;
+    text-decoration: none;
     color: #efecfd;
   }
 
