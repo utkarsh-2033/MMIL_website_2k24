@@ -11,6 +11,7 @@ const HeroSection = styled.section`
   position: relative;
   height: 100vh;
   width: 100%;
+  z-index: 1;
 `;
 
 const SphereContainer = styled.div`
