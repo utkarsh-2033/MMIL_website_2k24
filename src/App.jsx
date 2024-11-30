@@ -6,16 +6,16 @@ import { FeaturedProjects } from "../components/FeaturedProjects";
 import Footer from "../components/Footer";
 import Form from "../components/Form";
 import Clubs from "../components/Clubs";
+import { AuroraGradient } from "../components/AuroraGradient";
 
 const Main = styled.div`
   min-height: 100vh;
 `;
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
+      <AuroraGradient />
       <Hero />
       <Clubs />
       <OurEvents />
