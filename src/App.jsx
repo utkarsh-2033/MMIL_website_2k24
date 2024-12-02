@@ -6,6 +6,7 @@ import { FeaturedProjects } from "../components/FeaturedProjects";
 import Footer from "../components/Footer";
 import Form from "../components/Form";
 import Clubs from "../components/Clubs";
+import Team from "../components/Team";
 
 const Main = styled.div`
   min-height: 100vh;
@@ -18,6 +19,7 @@ function App() {
     <>
       <Hero />
       <Clubs />
+      <Team/>
       <OurEvents />
       <FeaturedProjects />
       <Form />
