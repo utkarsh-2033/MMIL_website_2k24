@@ -6,6 +6,7 @@ import { FeaturedProjects } from "../components/FeaturedProjects";
 import Footer from "../components/Footer";
 import Form from "../components/Form";
 import Clubs from "../components/Clubs";
+import { AuroraGradient } from "../components/AuroraGradient";
 import Team from "../components/Team";
 
 const Main = styled.div`
@@ -13,10 +14,9 @@ const Main = styled.div`
 `;
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
+      <AuroraGradient />
       <Hero />
       <Clubs />
       <Team/>
