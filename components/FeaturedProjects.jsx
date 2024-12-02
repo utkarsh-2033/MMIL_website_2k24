@@ -5,6 +5,9 @@ import proj3vector1 from "../src/assets/proj3vector1.svg";
 import proj3vector2 from "../src/assets/proj3vector2.svg";
 import proj4vector1 from "../src/assets/proj4vector1.svg";
 import proj4vector2 from "../src/assets/proj4vector2.svg";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
 
 const Container = styled.div`
   text-align: center;
@@ -46,7 +49,6 @@ const ProjectCard = styled.div`
   &:hover {
     scale: 1.02;
     box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
-
   }
 
   &:nth-child(1) {
@@ -204,13 +206,30 @@ const ExploreButton = styled.button`
 `;
 
 export const FeaturedProjects = () => {
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    var tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".project-container",
+        scroller: "body",
+        start: "top 0",
+        end: "top -50%",
+        // markers: true,
+        scrub: 3,
+        pin: true,
+      },
+    });
+    tl.to(".project-wrapper", {
+      transform: "translate(-50%)",
+    });
+  }, []);
   return (
     <>
       <hr style={{ width: "75%", margin: "0 auto" }} />
 
-      <Container>
+      <Container className="project-container">
         <Title>Featured Projects</Title>
-        <ProjectWrapper>
+        <ProjectWrapper className="project-wrapper">
           <ProjectCard>
             <img src={proj2vector2} alt="" />
             <img src={proj3vector1} alt="" />
