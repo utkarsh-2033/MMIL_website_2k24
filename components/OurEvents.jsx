@@ -1,3 +1,6 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 import React from "react";
 import styled from "styled-components";
 
@@ -23,7 +26,7 @@ const EventGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 0px;
-  row-gap: 0px;
+  row-gap: 4vh;
   justify-content: center;
 `;
 
@@ -91,34 +94,84 @@ const CirclesRight = styled.div`
 `;
 
 export const OurEvents = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    var tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".events-container",
+        scroller: "body",
+        start: "top 50%",
+        end: "top -60%",
+        // markers: true,
+        scrub: 3,
+      },
+    });
+
+    tl.from(".circlesLeft", {
+      opacity: 0,
+      x: -20,
+      scale: 0.5,
+      ease: "power2.Out",
+    }),
+
+    tl.from(".deencode", {
+      opacity: 0,
+      y: -200,
+      ease: "power2.inOut",
+    }, "anim"),
+    tl.from(".logocon", {
+      opacity: 0,
+      x: 200,
+      ease: "power2.inOut",
+      }, "anim"),
+    tl.from(".hackocode", {
+      opacity: 0,
+      x: -200,
+      ease: "power2.inOut",
+    }, "anim"),
+    tl.from(".valorant", {
+      opacity: 0,
+      y: 200,
+      ease: "power2.inOut",
+    }, "anim"),
+
+    tl.from(".circlesRight",{
+      opacity: 0,
+      x: 20,
+      scale: 0.5,
+      ease: "power2.Out",
+    })
+
+  });
   return (
-    <OurEventsContainer>
+    <OurEventsContainer className="events-container">
       <Title>Our Events</Title>
       <EventGrid>
-        <EventCard variant="deencode">
+        <EventCard variant="deencode" className="deencode">
           <a href="https://www.youtube.com" className="event-link">
             <EventImage src="public/Frame 427318180.png" />
           </a>
         </EventCard>
-        <EventCard variant="logocon">
+        <EventCard variant="logocon" className="logocon">
           <a href="https://www.youtube.com" className="event-link">
             <EventImage src="public/logocon post 1.png" />
           </a>
         </EventCard>
-        <EventCard variant="hackocode">
+        <EventCard variant="hackocode" className="hackocode">
           <a href="https://www.youtube.com" className="event-link">
             <EventImage src="public/final pls 1.png" />
           </a>
         </EventCard>
-        <EventCard variant="valorant">
+        <EventCard variant="valorant" className="valorant">
           <a href="https://www.youtube.com" className="event-link">
             <EventImage src="public/Valorent flex 1.png" />
           </a>
         </EventCard>
-        <CirclesLeft>
+        <CirclesLeft className="circlesLeft">
           <img src="public/Frame 427318247.png" className="circle-left-image" />
         </CirclesLeft>
-        <CirclesRight>
+        <CirclesRight className="circlesRight">
           <img
             src="public/Frame 427318248.png"
             className="circle-right-image"
