@@ -228,7 +228,7 @@ export const FeaturedProjects = () => {
       <hr style={{ width: "75%", margin: "0 auto" }} />
 
       <Container className="project-container">
-        <Title>Featured Projects</Title>
+        <Title className="featured-projects">Featured Projects</Title>
         <ProjectWrapper className="project-wrapper">
           <ProjectCard>
             <img src={proj2vector2} alt="" />
