@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FaInstagram, FaLinkedin, FaRegTimesCircle } from "react-icons/fa";
 import hand from "../src/assets/hand.svg";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import { useGSAP } from "@gsap/react";
 
 // Styled Components
 const GetInTouchContainer = styled.section`
@@ -310,9 +313,31 @@ const GetInTouch = () => {
     }
   };
 
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    var tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".getintouch-container",
+        scroller: "body",
+        start: "top 45%",
+        end: "top 40%",
+        // markers: true,
+        scrub: 3,
+      },
+    });
+    tl.from(".hand",{
+      opacity: 0,
+      duration: 1,
+      x:-150,
+      scale:0.5,
+      ease: "elastic.inOut"
+    })
+  });
+
   return (
     <div>
-      <GetInTouchContainer>
+      <GetInTouchContainer className="getintouch-container">
         <Title>GET IN TOUCH</Title>
         <SocialLinksContainer>
           <SocialLinkBox href="https://www.instagram.com">
@@ -359,7 +384,7 @@ const GetInTouch = () => {
           {errors.phone && <p style={{ color: "red" }}>{errors.phone}</p>}
           <SendButton type="submit">Submit</SendButton>
         </form>
-        <HandImage src={hand} alt="handd" />
+        <HandImage className="hand" src={hand} alt="hand" />
       </GetInTouchContainer>
       <BottomBorder />
     </div>

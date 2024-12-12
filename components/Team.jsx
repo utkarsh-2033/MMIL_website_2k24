@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { useGSAP } from "@gsap/react";
+import _ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -155,15 +157,114 @@ function Team() {
   const handleToggle = (setter) => {
     setter((prev) => !prev);
     setTimeout(() => {
-      ScrollTrigger.refresh(); 
+      ScrollTrigger.refresh();
     }, 0);
   };
 
+  gsap.registerPlugin(_ScrollTrigger);
+
+  useGSAP(() => {
+    var tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".team-container",
+        scroller: "body",
+        start: "top 70%",
+        end: "top 10%",
+        // markers: true,
+        scrub: 3,
+      },
+    });
+    tl.from(
+      ".shapeL",
+      {
+        opacity: 0,
+        scale: 0.5,
+        x: -50,
+      },
+      "anim"
+    ),
+      tl.from(
+        ".cube",
+        {
+          opacity: 0,
+          x: 100,
+        },
+        "anim"
+      );
+
+    var tl1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".prog",
+        scroller: "body",
+        start: "top 60%",
+        end: "top 30%",
+        // markers: true,
+        scrub: 3,
+      },
+    });
+    tl1.from(
+      ".prog",
+      {
+        opacity: 0,
+        scaleX: 0,
+        transformOrigin: "left center",
+        ease: "power2.out",
+        duration: 1.2,
+      },
+      "anim2"
+    ),
+      tl1.from(
+        ".shapeR",
+        {
+          opacity: 0,
+          x: 100,
+          ease: "power2.out",
+          duration: 1.2,
+        },
+        "anim2"
+      );
+
+    var tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".web",
+        scroller: "body",
+        start: "top 90%",
+        end: "top 50%",
+        // markers: true,
+        scrub: 3,
+      },
+    });
+    tl2.from(".webLine", {
+      opacity: 0,
+      scaleX: 0,
+      transformOrigin: "right center",
+      ease: "power2.out",
+      duration: 1.2,
+    });
+
+    var tl3 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".and",
+        scroller: "body",
+        start: "top 66%",
+        end: "top 20%",
+        // markers: true,
+        scrub: 3,
+      },
+    });
+    tl3.from(".andLine", {
+      x: 50,
+      clipPath: "inset(0 0 0 100%)",
+      ease: "power2.out",
+      duration: 1.5,
+    });
+  });
+
   return (
-    <Container>
+    <Container className="team-container">
       <Title>Meet the Team</Title>
-      <ShapeL src="/Frame 427318228.svg" />
-      <Cube src="/Group 3673.svg" />
+      <ShapeL className="shapeL" src="/Frame 427318228.svg" />
+      <Cube className="cube" src="/Group 3673.svg" />
       <SubTitle>Design |</SubTitle>
       <TeamBox>
         <Mem src="/IMG_20240627_115713.jpg" />
@@ -186,8 +287,8 @@ function Team() {
           </>
         )}
       </TeamBox>
-      <ShapeR src="Frame 427318229.svg" />
-      <Prog>
+      <ShapeR className="shapeR" src="Frame 427318229.svg" />
+      <Prog className="prog">
         <img src="/progline.svg" />
         <ProgTopLine src="/progtopline.png" />
       </Prog>
@@ -217,8 +318,8 @@ function Team() {
           </>
         )}
       </TeamBox>
-      <Web>
-        <WebLine src="/Group 3674.svg" />
+      <Web className="web">
+        <WebLine className="webLine" src="/Group 3674.svg" />
       </Web>
       <SubTitle>Web Development |</SubTitle>
       <TeamBox>
@@ -247,8 +348,8 @@ function Team() {
           </>
         )}
       </TeamBox>
-      <And>
-        <AndLine src="/Group 3667.svg" />
+      <And className="and">
+        <AndLine className="andLine" src="/Group 3667.svg" />
       </And>
       <SubTitle>Android & AIML |</SubTitle>
       <TeamBox>

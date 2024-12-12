@@ -40,6 +40,16 @@ const NavItem = styled.a`
 export const Header = () => {
   const navItems = ["About", "Team", "Projects", "Contacts"];
 
+  const handleScrollToSection = (section) => {
+    const element = document.getElementById(section);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start", 
+      });
+    }
+  };
+
   return (
     <>
       <Logo>
@@ -48,7 +58,10 @@ export const Header = () => {
       <HeaderContainer>
         <Nav>
           {navItems.map((item, index) => (
-            <NavItem href={`#${item.toLowerCase()}`} key={index}>
+            <NavItem
+              key={index}
+              onClick={() => handleScrollToSection(item.toLowerCase())} 
+            >
               {item}
             </NavItem>
           ))}

@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/all";
 import React from "react";
 import styled from "styled-components";
 
-const OurEventsContainer = styled.div`
+const OurEventsContainer = styled.section`
   position: relative;
   text-align: center;
   overflow: hidden;
@@ -112,6 +112,7 @@ export const OurEvents = () => {
       opacity: 0,
       x: -20,
       scale: 0.5,
+      rotation: -60,
       ease: "power2.Out",
     }),
 
@@ -140,6 +141,7 @@ export const OurEvents = () => {
       opacity: 0,
       x: 20,
       scale: 0.5,
+      rotation: 60,
       ease: "power2.Out",
     })
 
