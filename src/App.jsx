@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import Form from "../components/Form";
 import Clubs from "../components/Clubs";
 import { AuroraGradient } from "../components/AuroraGradient";
+import Team from "../components/Team";
 
 const Main = styled.div`
   min-height: 100vh;
@@ -18,6 +19,7 @@ function App() {
       <AuroraGradient />
       <Hero />
       <Clubs />
+      <Team/>
       <OurEvents />
       <FeaturedProjects />
       <Form />

@@ -212,8 +212,8 @@ export const FeaturedProjects = () => {
       scrollTrigger: {
         trigger: ".project-container",
         scroller: "body",
-        start: "top 0",
-        end: "top -50%",
+        start: "top 0%",
+        end: "top -100%",
         // markers: true,
         scrub: 3,
         pin: true,
