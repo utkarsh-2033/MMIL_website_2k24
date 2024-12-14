@@ -4,6 +4,8 @@ import { ScrollTrigger } from "gsap/all";
 import React from "react";
 import styled from "styled-components";
 
+const Section = styled.div``
+
 const Container = styled.div`
   margin-top: 50px;
   position: relative;
@@ -217,82 +219,100 @@ function Clubs() {
         scrub: 3,
       },
     });
-    tl.from(".one",{
-      x: -120,
-      opacity: 0
-    }, "anim")
-    tl.from(".two",{
-    y: -230,
-    opacity: 0
-    }, "anim")
-    tl.from(".three",{
-    y: 230,
-    opacity: 0,
-    }, "anim")
-    tl.from(".four",{
-    x: 120,
-    opacity: 0
-    }, "anim")
+    tl.from(
+      ".one",
+      {
+        x: -120,
+        opacity: 0,
+      },
+      "anim"
+    );
+    tl.from(
+      ".two",
+      {
+        y: -230,
+        opacity: 0,
+      },
+      "anim"
+    );
+    tl.from(
+      ".three",
+      {
+        y: 230,
+        opacity: 0,
+      },
+      "anim"
+    );
+    tl.from(
+      ".four",
+      {
+        x: 120,
+        opacity: 0,
+      },
+      "anim"
+    );
   }, []);
 
   return (
-    <Container className="our-clubs">
-      <Title>Our Clubs</Title>
-      <ClubGrid>
-        <ClubCard className="one">
-          <BackElem1 src="/Vector 1.svg" />
-          <BackElem2 src="/Vector 2.svg" />
-          <CardTitle>WEB DEV</CardTitle>
-          <CardText>
-            Unveil the creativity behind our web development projects, where we
-            build dynamic and user-friendly websites and applications
-          </CardText>
-          <ExploreButton>Explore</ExploreButton>
-        </ClubCard>
-        <ClubCard className="two">
-          <BackElem3 src="/Vector 3.svg" />
-          <BackElem4 src="/Vector 4.svg" />
-          <CardTitle>DESIGN</CardTitle>
-          <CardText>
-            Explore cutting-edge projects and innovative solutions crafted by
-            our talented team of designers in the Technical Society
-          </CardText>
-          <ExploreButton>Explore</ExploreButton>
-        </ClubCard>
-        <ClubCard className="three">
-          <BackElem5 src="/Vector 5.svg" />
-          <BackElem6 src="/Vector 6.svg" />
-          <CardTitle>PROGRAMMING</CardTitle>
-          <CardText>
-            Dive into our programming initiatives, where coding enthusiasts
-            develop powerful software and drive technological advancements
-          </CardText>
-          <ExploreButton>Explore</ExploreButton>
-        </ClubCard>
-        <ClubCard className="four">
-          <BackElem7 src="/Vector 7.svg" />
-          <BackElem8 src="/Vector 8.svg" />
-          <CardTitle>ANDROID</CardTitle>
-          <CardText>
-            Discover our Android development endeavors, showcasing innovative
-            apps and solutions for mobile technology
-          </CardText>
-          <ExploreButton>Explore</ExploreButton>
-        </ClubCard>
-      </ClubGrid>
-      <Text1>
-        <ul>
-          <li>Innovate, Create, Inspire</li>
-          <li>Code the Future</li>
-        </ul>
-      </Text1>
-      <Text2>
-        <ul>
-          <li>Crafting the Next Generation of Mobile Solutions</li>
-          <li>Building Dynamic and Engaging Web Experiences</li>
-        </ul>
-      </Text2>
-    </Container>
+    <Section id="about">
+      <Container className="our-clubs">
+        <Title>Our Clubs</Title>
+        <ClubGrid>
+          <ClubCard className="one">
+            <BackElem1 src="/Vector 1.svg" />
+            <BackElem2 src="/Vector 2.svg" />
+            <CardTitle>WEB DEV</CardTitle>
+            <CardText>
+              Unveil the creativity behind our web development projects, where
+              we build dynamic and user-friendly websites and applications
+            </CardText>
+            <ExploreButton>Explore</ExploreButton>
+          </ClubCard>
+          <ClubCard className="two">
+            <BackElem3 src="/Vector 3.svg" />
+            <BackElem4 src="/Vector 4.svg" />
+            <CardTitle>DESIGN</CardTitle>
+            <CardText>
+              Explore cutting-edge projects and innovative solutions crafted by
+              our talented team of designers in the Technical Society
+            </CardText>
+            <ExploreButton>Explore</ExploreButton>
+          </ClubCard>
+          <ClubCard className="three">
+            <BackElem5 src="/Vector 5.svg" />
+            <BackElem6 src="/Vector 6.svg" />
+            <CardTitle>PROGRAMMING</CardTitle>
+            <CardText>
+              Dive into our programming initiatives, where coding enthusiasts
+              develop powerful software and drive technological advancements
+            </CardText>
+            <ExploreButton>Explore</ExploreButton>
+          </ClubCard>
+          <ClubCard className="four">
+            <BackElem7 src="/Vector 7.svg" />
+            <BackElem8 src="/Vector 8.svg" />
+            <CardTitle>ANDROID</CardTitle>
+            <CardText>
+              Discover our Android development endeavors, showcasing innovative
+              apps and solutions for mobile technology
+            </CardText>
+            <ExploreButton>Explore</ExploreButton>
+          </ClubCard>
+        </ClubGrid>
+        <Text1>
+          <ul>
+            <li>Innovate, Create, Inspire</li>
+            <li>Code the Future</li>
+          </ul>
+        </Text1>
+        <Text2>
+          <ul>
+            <li>Crafting the Next Generation of Mobile Solutions</li>
+            <li>Building Dynamic and Engaging Web Experiences</li>
+          </ul>
+        </Text2>
+      </Container>
+    </Section>
   );
 }
 

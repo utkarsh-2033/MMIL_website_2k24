@@ -6,7 +6,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 
-// Styled Components
+const Section = styled.div``;
+
 const GetInTouchContainer = styled.section`
   position: relative;
   width: 60vw;
@@ -326,17 +327,17 @@ const GetInTouch = () => {
         scrub: 3,
       },
     });
-    tl.from(".hand",{
+    tl.from(".hand", {
       opacity: 0,
       duration: 1,
-      x:-150,
-      scale:0.5,
-      ease: "elastic.inOut"
-    })
+      x: -150,
+      scale: 0.5,
+      ease: "elastic.inOut",
+    });
   });
 
   return (
-    <div>
+    <Section id="contacts">
       <GetInTouchContainer className="getintouch-container">
         <Title>GET IN TOUCH</Title>
         <SocialLinksContainer>
@@ -387,7 +388,7 @@ const GetInTouch = () => {
         <HandImage className="hand" src={hand} alt="hand" />
       </GetInTouchContainer>
       <BottomBorder />
-    </div>
+    </Section>
   );
 };
 

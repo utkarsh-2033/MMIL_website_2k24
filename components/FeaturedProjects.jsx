@@ -9,6 +9,8 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
 
+const Section = styled.div``;
+
 const Container = styled.div`
   text-align: center;
   padding: 2rem;
@@ -227,85 +229,90 @@ export const FeaturedProjects = () => {
     <>
       <hr style={{ width: "75%", margin: "0 auto" }} />
 
-      <Container className="project-container">
-        <Title className="featured-projects">Featured Projects</Title>
-        <ProjectWrapper className="project-wrapper">
-          <ProjectCard>
-            <img src={proj2vector2} alt="" />
-            <img src={proj3vector1} alt="" />
-            <TextContent>
-              <ProjectTitle>Project 1</ProjectTitle>
-              <ProjectDescription>
-                Unveil the creativity behind our web development projects, where
-                we build dynamic and user-friendly websites and applications
-              </ProjectDescription>
-              <ExploreButton>Explore</ExploreButton>
-            </TextContent>
-          </ProjectCard>
-          <ProjectCard>
-            <img src={proj4vector1} alt="" />
-            <img src={proj2vector2} alt="" />
+      <Section id="projects">
+        <Container className="project-container">
+          <Title className="featured-projects">Featured Projects</Title>
+          <ProjectWrapper className="project-wrapper">
+            <ProjectCard>
+              <img src={proj2vector2} alt="" />
+              <img src={proj3vector1} alt="" />
+              <TextContent>
+                <ProjectTitle>Project 1</ProjectTitle>
+                <ProjectDescription>
+                  Unveil the creativity behind our web development projects,
+                  where we build dynamic and user-friendly websites and
+                  applications
+                </ProjectDescription>
+                <ExploreButton>Explore</ExploreButton>
+              </TextContent>
+            </ProjectCard>
+            <ProjectCard>
+              <img src={proj4vector1} alt="" />
+              <img src={proj2vector2} alt="" />
 
-            <TextContent>
-              <ProjectTitle>Project 2</ProjectTitle>
-              <ProjectDescription>
-                <p>
-                  Explore cutting-edge projects and innovative solutions crafted
-                  by our talented team of designers in the Technical Society
-                </p>
-              </ProjectDescription>
-              <ExploreButton>Explore</ExploreButton>
-            </TextContent>
-          </ProjectCard>
-          <ProjectCard>
-            <img src={proj3vector2} alt="" />
-            <img src={proj4vector2} alt="" />
+              <TextContent>
+                <ProjectTitle>Project 2</ProjectTitle>
+                <ProjectDescription>
+                  <p>
+                    Explore cutting-edge projects and innovative solutions
+                    crafted by our talented team of designers in the Technical
+                    Society
+                  </p>
+                </ProjectDescription>
+                <ExploreButton>Explore</ExploreButton>
+              </TextContent>
+            </ProjectCard>
+            <ProjectCard>
+              <img src={proj3vector2} alt="" />
+              <img src={proj4vector2} alt="" />
 
-            <TextContent>
-              <ProjectTitle>Project 3</ProjectTitle>
-              <ProjectDescription>
-                <p>
-                  Discover our Android development endeavors, showcasing
-                  innovative apps and solutions for mobile technology
-                </p>
-              </ProjectDescription>
-              <ExploreButton>Explore</ExploreButton>
-            </TextContent>
-          </ProjectCard>
-          <ProjectCard>
-            <img src={proj3vector1} alt="" />
-            <img src={proj4vector1} alt="" />
+              <TextContent>
+                <ProjectTitle>Project 3</ProjectTitle>
+                <ProjectDescription>
+                  <p>
+                    Discover our Android development endeavors, showcasing
+                    innovative apps and solutions for mobile technology
+                  </p>
+                </ProjectDescription>
+                <ExploreButton>Explore</ExploreButton>
+              </TextContent>
+            </ProjectCard>
+            <ProjectCard>
+              <img src={proj3vector1} alt="" />
+              <img src={proj4vector1} alt="" />
 
-            <TextContent>
-              <ProjectTitle>Project 4</ProjectTitle>
-              <ProjectDescription>
-                <p>
-                  Explore our AI/ML innovations, delivering cutting-edge models
-                  and intelligent solutions that redefine technology through
-                  automation and data-driven insights
-                </p>
-              </ProjectDescription>
-              <ExploreButton>Explore</ExploreButton>
-            </TextContent>
-          </ProjectCard>
-          <ProjectCard>
-            <img src={proj4vector2} alt="" />
-            <img src={proj2vector2} alt="" />
+              <TextContent>
+                <ProjectTitle>Project 4</ProjectTitle>
+                <ProjectDescription>
+                  <p>
+                    Explore our AI/ML innovations, delivering cutting-edge
+                    models and intelligent solutions that redefine technology
+                    through automation and data-driven insights
+                  </p>
+                </ProjectDescription>
+                <ExploreButton>Explore</ExploreButton>
+              </TextContent>
+            </ProjectCard>
+            <ProjectCard>
+              <img src={proj4vector2} alt="" />
+              <img src={proj2vector2} alt="" />
 
-            <TextContent>
-              <ProjectTitle>Project 5</ProjectTitle>
-              <ProjectDescription>
-                <p>
-                  Dive into our programming initiatives, where coding
-                  enthusiasts develop powerful software and drive technological
-                  advancements
-                </p>
-              </ProjectDescription>
-              <ExploreButton>Explore</ExploreButton>
-            </TextContent>
-          </ProjectCard>
-        </ProjectWrapper>
-      </Container>
+              <TextContent>
+                <ProjectTitle>Project 5</ProjectTitle>
+                <ProjectDescription>
+                  <p>
+                    Dive into our programming initiatives, where coding
+                    enthusiasts develop powerful software and drive
+                    technological advancements
+                  </p>
+                </ProjectDescription>
+                <ExploreButton>Explore</ExploreButton>
+              </TextContent>
+            </ProjectCard>
+          </ProjectWrapper>
+        </Container>
+      </Section>
+
       <hr style={{ width: "75%", margin: "0 auto" }} />
     </>
   );

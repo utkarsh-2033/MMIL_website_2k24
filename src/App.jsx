@@ -10,10 +10,6 @@ import { AuroraGradient } from "../components/AuroraGradient";
 import Team from "../components/Team";
 import { LoadingScreen } from "../components/LoadingScreen";
 
-const Main = styled.div`
-  min-height: 100vh;
-`;
-
 const LoadingPage = styled.div`
   position: fixed;
   top: 0;
@@ -23,39 +19,49 @@ const LoadingPage = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.8);
   z-index: 9999;
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
 `;
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [hasTimerElapsed, setHasTimerElapsed] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoading(false);
-    });
+      setHasTimerElapsed(true);
+    }, 5000);
+
     return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const resourceLoader = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(resourceLoader);
   }, []);
 
   return (
     <>
-      {isLoading && (
+      {(!hasTimerElapsed || isLoading) && (
         <LoadingPage>
           <LoadingScreen />
         </LoadingPage>
       )}
 
-      <AuroraGradient />
-      <Hero />
-      <Clubs />
-      <Team />
-      <OurEvents />
-      <FeaturedProjects />
-      <Form />
-      <Footer />
+      {hasTimerElapsed && !isLoading && (
+        <>
+          <AuroraGradient />
+          <Hero />
+          <Clubs />
+          <Team />
+          <OurEvents />
+          <FeaturedProjects />
+          <Form />
+          <Footer />
+        </>
+      )}
     </>
   );
 }

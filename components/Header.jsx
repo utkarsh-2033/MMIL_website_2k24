@@ -35,6 +35,7 @@ const NavItem = styled.a`
   color: #fff;
   text-decoration: none;
   font-size: 1.625rem;
+  cursor: pointer;
 `;
 
 export const Header = () => {
@@ -45,7 +46,7 @@ export const Header = () => {
     if (element) {
       element.scrollIntoView({
         behavior: "smooth",
-        block: "start", 
+        block: "start",
       });
     }
   };
