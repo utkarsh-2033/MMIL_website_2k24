@@ -300,19 +300,47 @@ const GetInTouch = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (validateForm()) {
-      console.log("Form submitted", { email, phone, message });
-
-      clearEmail();
-      clearPhone();
-      clearMessage();
+      console.log({
+        email,
+        phone,
+        message,
+      });
+  
+      try {
+        const response = await fetch('http://localhost:5000/api/submit-form', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email,
+            phone,
+            message,
+          }),
+        });
+  
+        if (response.ok) {
+          alert('Message sent successfully!');
+          clearEmail();
+          clearPhone();
+          clearMessage();
+        } else {
+          alert('Failed to send message.');
+        }
+      } catch (error) {
+        console.error('Error sending message:', error);
+        alert('Failed to send message.');
+      }
     } else {
       console.log("Form has errors");
     }
   };
+  
+  
 
   gsap.registerPlugin(ScrollTrigger);
 
