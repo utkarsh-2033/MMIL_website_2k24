@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FaInstagram, FaLinkedin, FaRegTimesCircle } from "react-icons/fa";
 import hand from "../src/assets/hand.svg";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import { useGSAP } from "@gsap/react";
 
-// Styled Components
+const Section = styled.div``;
+
 const GetInTouchContainer = styled.section`
   position: relative;
   width: 60vw;
@@ -296,23 +300,73 @@ const GetInTouch = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (validateForm()) {
-      console.log("Form submitted", { email, phone, message });
-
-      clearEmail();
-      clearPhone();
-      clearMessage();
+      console.log({
+        email,
+        phone,
+        message,
+      });
+  
+      try {
+        const response = await fetch('http://localhost:5000/api/submit-form', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email,
+            phone,
+            message,
+          }),
+        });
+  
+        if (response.ok) {
+          alert('Message sent successfully!');
+          clearEmail();
+          clearPhone();
+          clearMessage();
+        } else {
+          alert('Failed to send message.');
+        }
+      } catch (error) {
+        console.error('Error sending message:', error);
+        alert('Failed to send message.');
+      }
     } else {
       console.log("Form has errors");
     }
   };
+  
+  
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    var tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".getintouch-container",
+        scroller: "body",
+        start: "top 45%",
+        end: "top 40%",
+        // markers: true,
+        scrub: 3,
+      },
+    });
+    tl.from(".hand", {
+      opacity: 0,
+      duration: 1,
+      x: -150,
+      scale: 0.5,
+      ease: "elastic.inOut",
+    });
+  });
 
   return (
-    <div>
-      <GetInTouchContainer>
+    <Section id="contacts">
+      <GetInTouchContainer className="getintouch-container">
         <Title>GET IN TOUCH</Title>
         <SocialLinksContainer>
           <SocialLinkBox href="https://www.instagram.com">
@@ -359,10 +413,10 @@ const GetInTouch = () => {
           {errors.phone && <p style={{ color: "red" }}>{errors.phone}</p>}
           <SendButton type="submit">Submit</SendButton>
         </form>
-        <HandImage src={hand} alt="handd" />
+        <HandImage className="hand" src={hand} alt="hand" />
       </GetInTouchContainer>
       <BottomBorder />
-    </div>
+    </Section>
   );
 };
 

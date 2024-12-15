@@ -35,10 +35,21 @@ const NavItem = styled.a`
   color: #fff;
   text-decoration: none;
   font-size: 1.625rem;
+  cursor: pointer;
 `;
 
 export const Header = () => {
   const navItems = ["About", "Team", "Projects", "Contacts"];
+
+  const handleScrollToSection = (section) => {
+    const element = document.getElementById(section);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
   return (
     <>
@@ -48,7 +59,10 @@ export const Header = () => {
       <HeaderContainer>
         <Nav>
           {navItems.map((item, index) => (
-            <NavItem href={`#${item.toLowerCase()}`} key={index}>
+            <NavItem
+              key={index}
+              onClick={() => handleScrollToSection(item.toLowerCase())} 
+            >
               {item}
             </NavItem>
           ))}

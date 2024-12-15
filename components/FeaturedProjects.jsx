@@ -5,6 +5,11 @@ import proj3vector1 from "../src/assets/proj3vector1.svg";
 import proj3vector2 from "../src/assets/proj3vector2.svg";
 import proj4vector1 from "../src/assets/proj4vector1.svg";
 import proj4vector2 from "../src/assets/proj4vector2.svg";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
+
+const Section = styled.div``;
 
 const Container = styled.div`
   text-align: center;
@@ -46,7 +51,6 @@ const ProjectCard = styled.div`
   &:hover {
     scale: 1.02;
     box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
-
   }
 
   &:nth-child(1) {
@@ -204,89 +208,111 @@ const ExploreButton = styled.button`
 `;
 
 export const FeaturedProjects = () => {
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    var tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".project-container",
+        scroller: "body",
+        start: "top 0%",
+        end: "top -100%",
+        // markers: true,
+        scrub: 3,
+        pin: true,
+      },
+    });
+    tl.to(".project-wrapper", {
+      transform: "translate(-50%)",
+    });
+  }, []);
   return (
     <>
       <hr style={{ width: "75%", margin: "0 auto" }} />
 
-      <Container>
-        <Title>Featured Projects</Title>
-        <ProjectWrapper>
-          <ProjectCard>
-            <img src={proj2vector2} alt="" />
-            <img src={proj3vector1} alt="" />
-            <TextContent>
-              <ProjectTitle>Project 1</ProjectTitle>
-              <ProjectDescription>
-                Unveil the creativity behind our web development projects, where
-                we build dynamic and user-friendly websites and applications
-              </ProjectDescription>
-              <ExploreButton>Explore</ExploreButton>
-            </TextContent>
-          </ProjectCard>
-          <ProjectCard>
-            <img src={proj4vector1} alt="" />
-            <img src={proj2vector2} alt="" />
+      <Section id="projects">
+        <Container className="project-container">
+          <Title className="featured-projects">Featured Projects</Title>
+          <ProjectWrapper className="project-wrapper">
+            <ProjectCard>
+              <img src={proj2vector2} alt="" />
+              <img src={proj3vector1} alt="" />
+              <TextContent>
+                <ProjectTitle>Project 1</ProjectTitle>
+                <ProjectDescription>
+                  Unveil the creativity behind our web development projects,
+                  where we build dynamic and user-friendly websites and
+                  applications
+                </ProjectDescription>
+                <ExploreButton>Explore</ExploreButton>
+              </TextContent>
+            </ProjectCard>
+            <ProjectCard>
+              <img src={proj4vector1} alt="" />
+              <img src={proj2vector2} alt="" />
 
-            <TextContent>
-              <ProjectTitle>Project 2</ProjectTitle>
-              <ProjectDescription>
-                <p>
-                  Explore cutting-edge projects and innovative solutions crafted
-                  by our talented team of designers in the Technical Society
-                </p>
-              </ProjectDescription>
-              <ExploreButton>Explore</ExploreButton>
-            </TextContent>
-          </ProjectCard>
-          <ProjectCard>
-            <img src={proj3vector2} alt="" />
-            <img src={proj4vector2} alt="" />
+              <TextContent>
+                <ProjectTitle>Project 2</ProjectTitle>
+                <ProjectDescription>
+                  <p>
+                    Explore cutting-edge projects and innovative solutions
+                    crafted by our talented team of designers in the Technical
+                    Society
+                  </p>
+                </ProjectDescription>
+                <ExploreButton>Explore</ExploreButton>
+              </TextContent>
+            </ProjectCard>
+            <ProjectCard>
+              <img src={proj3vector2} alt="" />
+              <img src={proj4vector2} alt="" />
 
-            <TextContent>
-              <ProjectTitle>Project 3</ProjectTitle>
-              <ProjectDescription>
-                <p>
-                  Discover our Android development endeavors, showcasing
-                  innovative apps and solutions for mobile technology
-                </p>
-              </ProjectDescription>
-              <ExploreButton>Explore</ExploreButton>
-            </TextContent>
-          </ProjectCard>
-          <ProjectCard>
-            <img src={proj3vector1} alt="" />
-            <img src={proj4vector1} alt="" />
+              <TextContent>
+                <ProjectTitle>Project 3</ProjectTitle>
+                <ProjectDescription>
+                  <p>
+                    Discover our Android development endeavors, showcasing
+                    innovative apps and solutions for mobile technology
+                  </p>
+                </ProjectDescription>
+                <ExploreButton>Explore</ExploreButton>
+              </TextContent>
+            </ProjectCard>
+            <ProjectCard>
+              <img src={proj3vector1} alt="" />
+              <img src={proj4vector1} alt="" />
 
-            <TextContent>
-              <ProjectTitle>Project 4</ProjectTitle>
-              <ProjectDescription>
-                <p>
-                  Explore our AI/ML innovations, delivering cutting-edge models
-                  and intelligent solutions that redefine technology through
-                  automation and data-driven insights
-                </p>
-              </ProjectDescription>
-              <ExploreButton>Explore</ExploreButton>
-            </TextContent>
-          </ProjectCard>
-          <ProjectCard>
-            <img src={proj4vector2} alt="" />
-            <img src={proj2vector2} alt="" />
+              <TextContent>
+                <ProjectTitle>Project 4</ProjectTitle>
+                <ProjectDescription>
+                  <p>
+                    Explore our AI/ML innovations, delivering cutting-edge
+                    models and intelligent solutions that redefine technology
+                    through automation and data-driven insights
+                  </p>
+                </ProjectDescription>
+                <ExploreButton>Explore</ExploreButton>
+              </TextContent>
+            </ProjectCard>
+            <ProjectCard>
+              <img src={proj4vector2} alt="" />
+              <img src={proj2vector2} alt="" />
 
-            <TextContent>
-              <ProjectTitle>Project 5</ProjectTitle>
-              <ProjectDescription>
-                <p>
-                  Dive into our programming initiatives, where coding
-                  enthusiasts develop powerful software and drive technological
-                  advancements
-                </p>
-              </ProjectDescription>
-              <ExploreButton>Explore</ExploreButton>
-            </TextContent>
-          </ProjectCard>
-        </ProjectWrapper>
-      </Container>
+              <TextContent>
+                <ProjectTitle>Project 5</ProjectTitle>
+                <ProjectDescription>
+                  <p>
+                    Dive into our programming initiatives, where coding
+                    enthusiasts develop powerful software and drive
+                    technological advancements
+                  </p>
+                </ProjectDescription>
+                <ExploreButton>Explore</ExploreButton>
+              </TextContent>
+            </ProjectCard>
+          </ProjectWrapper>
+        </Container>
+      </Section>
+
       <hr style={{ width: "75%", margin: "0 auto" }} />
     </>
   );
